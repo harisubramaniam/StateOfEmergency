@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Display a map with a custom style</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900|Roboto+Slab:100,300,400,700&display=swap" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <link href="css/infographics.css" rel="stylesheet"></head>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:fixed; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<style>
+    #map {
+        position: fixed;
+        height: 400px;
+        width: 50%;
+    }
+    #features {
+        height: 400px;
+        min-height: 400 !important;
+        width: 50%;
+        margin-left: 50%;
+        font-family: 'Noto Sans JP';
+        overflow-y: scroll;
+        background-color: #fafafa;
+    }
+    section {
+        padding:  25px 50px;
+        line-height: 25px;
+        border-bottom: 1px solid #ddd;
+        opacity: 0.25;
+        font-size: 13px;
+    }
+    section.active {
+        opacity: 1;
+    }
+    section:last-child {
+        border-bottom: none;
+        margin-bottom: 200px;
+    }
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Noto Sans JP';
+    }
+</style>
+<div class="container">
+    <div class="row">
+    <!-- <h2 class="graphics-hed">California Communities affected by wildfires</h2> -->
+    <div class="col-md-8 offset-md-2">
+        
+        <!-- <p class="graphics-subhed">Subhed goes here!</p> -->
+        <div id='map'></div>
+        <div id='features'>
+            <section id='acton' class='active'>
+                <h3>Acton, CA</h3>
+                <p>Residents: 7, 278<br>Median Age: 50.2<br>Median Household Income: $90,859</p>
+            </section>
+            <section id='agua-dulce'>
+                <h3>Agua Dulce, CA</h3>
+                <p>Residents: 3,598<br>Median Age: 47.3<br>Median Household Income: $105,685</p>
+            </section>
+            <section id='arnold'>
+                <h3>Arnold, CA</h3>
+                <p>Residents: 2,798<br>Median Age: 57.4<br>Median Household Income: $54,398</p>
+            </section>
+            <section id='avalon'>
+                <h3>Avalon, CA</h3>
+                <p>Residents: 3,778<br>Median Age: 34.5<br>Median Household Income: $62,986</p>
+            </section>
+            <section id='bell-canyon'>
+                <h3>Bell Canyon, CA</h3>
+                <p>Residents: 2,150<br>Median Age: 47.1<br>Median Household Income: $200,625</p>
+            </section>
+            <section id='berry-creek'>
+                <h3>Berry Creek, CA</h3>
+                <p>Residents: 1,179<br>Median Age: 56<br>Median Household Income: $36,071</p>
+            </section>
+            <section id='calabasas'>
+                <h3>Calabasas</h3>
+                <p>Residents: 24,109<br>Median Age: 43.4<br>Median Household Income: $114,143</p>
+            </section>
+            <section id='cedar-ridge'>
+                <h3>Cedar Ridge, CA</h3>
+                <p>Residents: 1,132<br>Median Age: 54.1<br>Median Household Income: $53,877</p>
+            </section>
+            <section id='challenge-brownsville'>
+                <h3>Challenge-Brownsville, CA</h3>
+                <p>Residents: 837<br>Median Age: 58.2<br>Median Household Income: $53,083</p>
+            </section>
+            <section id='clear-lake-riviera'>
+                <h3>Clear Lake Riviera, CA</h3>
+                <p>Residents: 3,616<br>Median Age: 40.7<br>Median Household Income: $47,443</p>
+            </section>
+            <section id='cobb'>
+                <h3>Cobb, CA</h3>
+                <p>Residents: 984<br>Median Age: 54.2<br>Median Household Income: $83,030</p>
+            </section>
+            <section id='colfax'>
+                <h3>Colfax, CA</h3>
+                <p>Residents: 2,187<br>Median Age: 33.1<br>Median Household Income: $44,826</p>
+            </section>
+            <section id='crestline'>
+                <h3>Crestline, CA</h3>
+                <p>Residents: 9,581<br>Median Age: 44.7<br>Median Household Income: $56,692</p>
+            </section>
+            <section id='dollar-point'>
+                <h3>Dollar Point, CA</h3>
+                <p>Residents: 963<br>Median Age: 48.3<br>Median Household Income: $70,784</p>
+            </section>
+            <section id='dunsmuir'>
+                <h3>Dunsmuir, CA</h3>
+                <p>Residents: 9,581<br>Median Age: 44.7<br>Median Household Income: $56,692</p>
+            </section>
+            <section id='elizabeth-lake'>
+                <h3>Elizabeth Lake, CA</h3>
+                <p>Residents: 1,884<br>Median Age: 47.6<br>Median Household Income: $59,500</p>
+            </section>
+            <section id=forest-meadows>
+                <h3>Forest Meadows, CA</h3>
+                <p>Residents: 1,249<br>Median Age: 51.3<br>Median Household Income: $6,759</p>
+            </section>
+            <section id='frazier-park'>
+                <h3>Frazier Park, CA</h3>
+                <p>Residents: 2,440<br>Median Age: 42.1<br>Median Household Income: $31,714</p>
+            </section>
+            <section id='georgetown'>
+                <h3>Georgetown, CA</h3>
+                <p>Residents: 2,393<br>Median Age: 39.3<br>Median Household Income: $49,083</p>
+            </section>
+            <section id='green-valley'>
+                <h3>Green Valley, CA</h3>
+                <p>Residents: 1,314<br>Median Age: 63.3<br>Median Household Income: $88,269</p>
+            </section>
+            <section id=grizzly-flats>
+                <h3>Grizzly Flats, CA</h3>
+                <p>Residents: 954<br>Median Age: 51.3<br>Median Household Income: $47,889</p>
+            </section>
+            <section id='happy-camp'>
+                <h3>Happy Camp, CA</h3>
+                <p>Residents: 800<br>Median Age: 54.6<br>Median Household Income: $27,361</p>
+            </section>
+            <section id='harbison-canyon'>
+                <h3>Harbison Canyon, CA</h3>
+                <p>Residents: 4,199<br>Median Age: 42.9<br>Median Household Income: $83,616</p>
+            </section>
+            <section id='hasley-canyon'>
+                <h3>Hasley Canyon, CA</h3>
+                <p>Residents: 1,137<br>Median Age: 42.9<br>Median Household Income: $61,338</p>
+            </section>
+            <section id='idyllwild-pine-cove'>
+                <h3>Idyllwild-Pine Cove, CA</h3>
+                <p>Residents: 2,590<br>Median Age: 56<br>Median Household Income: $64,375</p>
+            </section>
+            <section id='julian'>
+                <h3>Julian, CA</h3>
+                <p>Residents: 878<br>Median Age: 60.2<br>Median Household Income: $66,250</p>
+            </section>
+            <section id='kensington'>
+                <h3>Kensington, CA</h3>
+                <p>Residents: 5,573<br>Median Age: 51.8<br>Median Household Income: $140,000</p>
+            </section>
+            <section id='kings-beach'>
+                <h3>Kings Beach, CA</h3>
+                <p>Residents: 2,824<br>Median Age: 33.6<br>Median Household Income: $46,023</p>
+            </section>
+            <section id='la-canada-flintridge'>
+                <h3>La Canada Flintridge, CA</h3>
+                <p>Residents: 20,474<br>Median Age: 43.5<br>Median Household Income: $160,481</p>
+            </section>
+            <section id='lake-arrowhead'>
+                <h3>Lake Arrowhead, CA</h3>
+                <p>Residents: 10,612<br>Median Age: 43.5<br>Median Household Income: $67,949</p>
+            </section>
+            <section id='lake-nacimiento'>
+                <h3>Lake Nacimiento, CA</h3>
+                <p>Residents: 2,806<br>Median Age: 45.6<br>Median Household Income: $68,750</p>
+            </section>
+            <section id='lake-sherwood'>
+                <h3>Lake Sherwood, CA</h3>
+                <p>Residents: 1,832<br>Median Age: 50.6<br>Median Household Income: $250,001</p>
+            </section>
+            <section id='leona-valley'>
+                <h3>Leona Valley, CA</h3>
+                <p>Residents: 1,615<br>Median Age: 49.3<br>Median Household Income: $81,964</p>
+            </section>
+            <section id='lewiston'>
+                <h3>Lewsiton, CA</h3>
+                <p>Residents: 1,368<br>Median Age: 57.4<br>Median Household Income: $34,423</p>
+            </section>
+            <section id='malibu'>
+                <h3>Malibu, CA</h3>
+                <p>Residents: 12,871<br>Median Age: 51.5<br>Median Household Income: $134,282</p>
+            </section>
+            <section id='mono-vista'>
+                <h3>Mono Vista, CA</h3>
+                <p>Residents: 3,346<br>Median Age: 43.2<br>Median Household Income: $68,257</p>
+            </section>
+            <section id='mountain-ranch'>
+                <h3>Mountain Ranch, CA</h3>
+                <p>Residents: 1.045<br>Median Age: 60.8<br>Median Household Income: $34,929</p>
+            </section>
+            <section id='nevada-city'>
+                <h3>Nevada City, CA</h3>
+                <p>Residents: 3,112<br>Median Age: 53.3<br>Median Household Income: $43,614</p>
+            </section>
+            <section id='palos-verdes-estates'>
+                <h3>Palos Verdes Estates, CA</h3>
+                <p>Residents: 13,591<br>Median Age: 50.2<br>Median Household Income: $180,815</p>
+            </section>
+            <section id='phoenix-lake'>
+                <h3>Phoenix Lake, CA</h3>
+                <p>Residents: 4,278<br>Median Age: 51.7<br>Median Household Income: $90,500</p>
+            </section>
+            <section id='pine-mountain-club'>
+                <h3>Pine Mountain Club, CA</h3>
+                <p>Residents: 1,571<br>Median Age: 47.9<br>Median Household Income: $64,118</p>
+            </section>
+            <section id='pine-valley'>
+                <h3>Pine Valley, CA</h3>
+                <p>Residents: 1,878<br>Median Age: 38.5<br>Median Household Income: $103,173</p>
+            </section>
+            <section id='pioneer'>
+                <h3>Pioneer, CA</h3>
+                <p>Residents: 1,094<br>Median Age: 57.6<br>Median Household Income: $60,569</p>
+            </section>
+            <section id='red-corral'>
+                <h3>Red Corral, CA</h3>
+                <p>Residents: 1,850<br>Median Age: 45.8<br>Median Household Income: $96,679</p>
+            </section>
+            <section id='rolling-hills'>
+                <h3>Rolling Hills, CA</h3>
+                <p>Residents: 1,684<br>Median Age: 55<br>Median Household Income: $206,932</p>
+            </section>
+            <section id='rolling-hills-estate'>
+                <h3>Rolling Hills Estate, CA</h3>
+                <p>Residents: 8,229<br>Median Age: 50.5<br>Median Household Income: $131,471</p>
+            </section>
+            <section id='running-springs'>
+                <h3>Running Springs, CA</h3>
+                <p>Residents: 4,427<br>Median Age: 42.1<br>Median Household Income: $58,684</p>
+            </section>
+            <section id='santa-susana'>
+                <h3>Santa Susana, CA</h3>
+                <p>Residents: 1.042<br>Median Age: 47.6<br>Median Household Income: $68,269</p>
+            </section>
+            <section id='shasta'>
+                <h3>Shasta, CA</h3>
+                <p>Residents: 1,771<br>Median Age: 52.6<br>Median Household Income: $46,724</p>
+            </section>
+            <section id='shingletown'>
+                <h3>Shingletown, CA</h3>
+                <p>Residents: 2,261<br>Median Age: 61<br>Median Household Income: $41,985</p>
+            </section>
+            <section id='soulsbyville'>
+                <h3>Soulsbyville, CA</h3>
+                <p>Residents: 2,348<br>Median Age: 36.5<br>Median Household Income: $75,361</p>
+            </section>
+            <section id='sunnside-tahoe-city'>
+                <h3>Sunnyside-Tahoe City, CA</h3>
+                <p>Residents: 1,267<br>Median Age: 44.3<br>Median Household Income: $74,955</p>
+            </section>
+            <section id='tahoe-vista'>
+                <h3>Tahoe Vista, CA</h3>
+                <p>Residents: 1,290<br>Median Age: 32.2<br>Median Household Income: $53,571</p>
+            </section>
+            <section id='tahoma'>
+                <h3>Tahoma, CA</h3>
+                <p>Residents: 675<br>Median Age: 48.9<br>Median Household Income: $73,125</p>
+            </section>
+            <section id='topanga'>
+                <h3>Topanga, CA</h3>
+                <p>Residents: 7,705<br>Median Age: 46.5<br>Median Household Income: $120,404</p>
+            </section>
+            <section id='twain-harte'>
+                <h3>Twain Harte, CA</h3>
+                <p>Residents: 2,694<br>Median Age: 55.5<br>Median Household Income: $51,111</p>
+            </section>
+            <section id='val-verde'>
+                <h3>Val Verde, CA</h3>
+                <p>Residents: 2,928<br>Median Age: 32.8<br>Median Household Income: $83,487</p>
+            </section>
+            <section id='yosemite-valley'>
+                <h3>Yosemite Valley, CA</h3>
+                <p>Residents: 996<br>Median Age: 41.7<br>Median Household Income: N/A</p>
+            </section>
+            <section id='empty'>
+                <p></p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VicmFtaCIsImEiOiJjajhxZ2RsajUwc2Y0MzhxdXBnc3RsanZ5In0.By499mklvhxz-bWCAeZMMg';
+    
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
+        center: [-118.1967418, 34.469994], // starting position = Acton
+        zoom: 11, // starting zoom
+        // bearing: 25,
+        // pitch: 45,
+        interactive: true
+    });
+    
+    var chapters = {
+        'acton': {
+            // duration: 6000,
+            center: [-118.1967418, 34.469994],
+            bearing: 20,
+            zoom: 11,
+            pitch: 20
+        },
+        'agua-dulce': {
+            bearing: 15,
+            center: [-118.325592, 34.497406],
+            zoom: 12,
+            // speed: 0.6,
+            pitch: 20
+        },
+        'arnold': {
+            bearing: 20,
+            center:  [-120.3510307, 38.2554729],
+            zoom: 10.5
+        },
+        'avalon': {
+            bearing: 20,
+            center: [-118.327261, 33.34221],
+            zoom: 10,
+            pitch: 20,
+            speed: 0.5
+        },
+        'bell-canyon': {
+            bearing: 20,
+            center: [-118.690006, 34.206700],
+            zoom: 13
+        },
+        'berry-creek': {
+            bearing: 20,
+            center: [-121.403256, 39.645856],
+            zoom: 11,
+            pitch: 40
+        },
+        'calabasas': {
+            bearing: 20,
+            center: [-118.661836, 34.136417],
+            zoom: 10,
+            pitch: 20
+        },
+        'cedar-ridge': {
+            bearing: 20,
+            center: [-121.0210585, 39.1987834],
+            zoom: 12,
+            pitch: 20
+        },
+        'challenge-brownsville': {
+            bearing: 20,
+            center: [-121.284301, 39.457623],
+            zoom: 10,
+            pitch: 20
+        },
+        'clear-lake-riviera': {
+            bearing: 20,
+            center: [-122.7208217, 38.9540649],
+            zoom: 10,
+            pitch: 20
+        },
+        'cobb': {
+            bearing: 20,
+            center: [-122.7230451, 38.8221258],
+            zoom: 10,
+            pitch: 20
+        },
+        'colfax': {
+            bearing: 20,
+            center: [-120.940584358093, 39.092034],
+            zoom: 11,
+            pitch: 20
+        },
+        'crestline': {
+            bearing: 20,
+            center: [-117.2855993, 34.2419509],
+            zoom: 10,
+            pitch: 20
+        },
+        'dollar-point': {
+            bearing: 20,
+            center: [-120.0999135, 39.1879625],
+            zoom: 11,
+            pitch: 2
+        },
+        'dunsmuir': {
+            bearing: 20,
+            center: [-122.271953, 41.208209],
+            zoom: 10,
+            pitch: 20
+        },
+        'elizabeth-lake': {
+            bearing: 20,
+            center: [-118.399680416707, 34.66613595],
+            zoom: 12,
+            pitch: 20
+        },
+        'forest-meadows': {
+            bearing: 20,
+            center: [-120.4054756, 38.1679751],
+            zoom: 12,
+            pitch: 20
+        },
+        'frazier-park': {
+            bearing: 20,
+            center: [-118.9448219, 34.8227556],
+            zoom: 11,
+            pitch: 20
+        },
+        'georgetown': {
+            bearing: 20,
+            center: [-120.8385462, 38.9068445],
+            zoom: 11,
+            pitch: 20
+        },
+        'green-valley': {
+            bearing: 20,
+            center: [-122.1621917, 38.2529705],
+            zoom: 11,
+            pitch: 20
+        },
+        'grizzly-flats': {
+            bearing: 20,
+            center: [-120.529072, 38.635573],
+            zoom: 12,
+            pitch: 20
+        },
+        'happy-camp': {
+            bearing: 20,
+            center: [-123.379195, 41.793191],
+            zoom: 12,
+            pitch: 20
+        },
+        'harbison-canyon': {
+            bearing: 20,
+            center: [-116.8300236, 32.8203296],
+            zoom: 10,
+            pitch: 20
+        },
+        'hasley-canyon': {
+            bearing: 20,
+            center: [-118.619926360067, 34.45223875],
+            zoom: 12,
+            pitch: 20
+        },
+        'idyllwild-pine-cove': {
+            bearing: 20,
+            center: [-116.723778028571, 33.743501],
+            zoom: 10,
+            pitch: 20
+        },
+        'julian': {
+            bearing: 20,
+            center: [-116.6023154, 33.078597],
+            zoom: 10,
+            pitch: 20
+        },
+        'kensington': {
+            bearing: 20,
+            center: [-122.2802471, 37.9104805],
+            zoom: 11,
+            pitch: 20
+        },
+        'kings-beach': {
+            bearing: 20,
+            center: [-120.0233622, 39.2362794],
+            zoom: 11,
+            pitch: 20
+        },
+        'la-canada-flintridge': {
+            bearing: 20,
+            center: [-118.2005236, 34.1998302],
+            zoom: 11,
+            pitch: 20
+        },
+        'lake-arrowhead': {
+            bearing: 20,
+            center: [-117.185754081831, 34.2592869],
+            zoom: 10,
+            pitch: 20
+        },
+        'lake-nacimiento': {
+            bearing: 20,
+            center: [-120.87392943436, 35.737458],
+            zoom: 10,
+            pitch: 20
+        },
+        'lake-sherwood': {
+            bearing: 20,
+            center: [-118.874895876978, 34.13705515],
+            zoom: 12,
+            pitch: 20
+        },
+        'leona-valley': {
+            bearing: 20,
+            center: [-118.288133, 34.618321],
+            zoom: 12,
+            pitch: 20
+        },
+        'lewiston': {
+            bearing: 20,
+            center: [-122.8075227, 40.7073681],
+            zoom: 10,
+            pitch: 20
+        },
+        'malibu': {
+            bearing: 15,
+            center: [-118.689423, 34.035591],
+            zoom: 9,
+            pitch: 20
+        },
+        'mono-vista': {
+            bearing: 20,
+            center: [-120.269536044393, 38.0105865],
+            zoom: 11,
+            pitch: 20
+        },
+        'mountain-ranch': {
+            bearing: 20,
+            center: [-120.506806880094, 38.235224],
+            zoom: 11,
+            pitch: 40
+        },
+        'nevada-city': {
+            bearing: 20,
+            center: [-121.0160594, 39.2615606],
+            zoom: 12,
+            pitch: 20
+        },
+        'palos-verdes-estates': {
+            bearing: 20,
+            center: [-118.401813, 33.7872386],
+            zoom: 11,
+            pitch: 20
+        },
+        'phoenix-lake': {
+            bearing: 20,
+            center: [-122.574301175892, 37.9536737],
+            zoom: 14,
+            pitch: 20
+        },
+        'pine-mountain-club': {
+            bearing: 20,
+            center: [-119.1567935, 34.8466642],
+            zoom: 11,
+            pitch: 20
+        },
+        'pine-valley': {
+            bearing: 20,
+            center: [-116.515047890598, 32.84174395],
+            zoom: 11,
+            pitch: 20
+        },
+        'pioneer': {
+            bearing: 20,
+            center: [-120.5718719, 38.4318551],
+            zoom: 12,
+            pitch: 20
+        },
+        'red-corral': {
+            bearing: 20,
+            center: [-120.575783, 38.4210694],
+            zoom: 13,
+            pitch: 20
+        },
+        'rolling-hills': {
+            bearing: 20,
+            center: [-118.3496623, 33.7668041],
+            zoom: 11,
+            pitch: 20
+        },
+        'rolling-hills-estate': {
+            bearing: 20,
+            center: [-118.3581284, 33.7877943],
+            zoom: 11,
+            pitch: 20
+        },
+        'running-springs': {
+            bearing: 20,
+            center: [-117.1092049, 34.2077859],
+            zoom: 11,
+            pitch: 20
+        },
+        'santa-susana': {
+            bearing: 20,
+            center: [-118.7090222, 34.2716255],
+            zoom: 10,
+            pitch: 20
+        },
+        'shasta': {
+            bearing: 20,
+            center: [-122.4919571, 40.5993165],
+            zoom: 11,
+            pitch: 20
+        },
+        'shingletown': {
+            bearing: 20,
+            center: [-121.873325661267, 40.5023815],
+            zoom: 10,
+            pitch: 20
+        },
+        'soulsbyville': {
+            bearing: 20,
+            center: [-120.261640256778, 37.994726],
+            zoom: 11,
+            pitch: 20
+        },
+        'sunnside-tahoe-city': {
+            bearing: 20,
+            center: [-120.147311475144, 39.1554945],
+            zoom: 11,
+            pitch: 20
+        },
+        'tahoe-vista': {
+            bearing: 20,
+            center: [-120.051905276108, 39.248688],
+            zoom: 11,
+            pitch: 20
+        },
+        'tahoma': {
+            bearing: 20,
+            center: [-120.1282439, 39.0674074],
+            zoom: 12,
+            pitch: 20
+        },
+        'topanga': {
+            bearing: 20,
+            center: [-118.5970196, 34.0908165],
+            zoom: 12,
+            pitch: 20
+        },
+        'twain-harte': {
+            bearing: 20,
+            center: [-120.238494078094, 38.0337345],
+            zoom: 12,
+            pitch: 20
+        },
+        'val-verde': {
+            bearing: 20,
+            center: [-118.654360220167, 34.444501],
+            zoom: 13,
+            pitch: 20
+        },
+        'yosemite-valley': {
+            bearing: 20,
+            center: [-119.6064674, 37.734435],
+            zoom: 12,
+            pitch: 20
+        }
+    };
+
+    map.on('load', function() {
+        map.addLayer({
+            'id': 'ca-communities',
+            'type': 'fill',
+            'source': {
+                'type': 'geojson',
+                'data': 'data/ca-data.geo.json'
+            },
+            'layout': {},
+            'paint': {
+                'fill-color': '#FFC200',
+                'fill-opacity': 0.5,
+                'fill-outline-color': '#121212'
+            }
+        });
+
+        map.addLayer({
+            "id": "ca-points",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": "data/ca-data-points.json"
+            },
+            "layout": {
+                "icon-image": "{icon}-15",
+                "icon-size": 1,
+                "text-field": "{title}",
+                "text-offset": [0, 0.6],
+                "text-size": 11,
+                "text-anchor": "top"
+            },
+            "paint": {
+                "text-color": ["get", "color"]
+            }
+        });
+
+        // Create a popup, but don't add it to the map yet.
+        var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        map.on('click', 'ca-communities', function (e) {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties.description)
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'ca-communities', function(e) {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'ca-communities', function() {
+            map.getCanvas().style.cursor = '';
+            // popup.remove();
+        });
+
+        // Create a marker popup, but don't add it to the map yet.
+        var iconpopup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        map.on('click', 'ca-points', function (e) {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(e.features[0].properties.description)
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'ca-points', function(e) {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'ca-points', function() {
+            map.getCanvas().style.cursor = '';
+            // popup.remove();
+        });
+    });
+
+    // On every scroll event, check which element is on screen
+    // window.onscroll = function() {
+    $('#features').scroll(function() {
+        var chapterNames = Object.keys(chapters);
+        for (var i = 0; i < chapterNames.length; i++) {
+            var chapterName = chapterNames[i];
+            if (isElementOnScreen(chapterName)) {
+                setActiveChapter(chapterName);
+                break;
+            }
+        }
+    });
+ 
+    var activeChapterName = 'acton';
+    function setActiveChapter(chapterName) {
+        if (chapterName === activeChapterName) return;
+ 
+            map.flyTo(chapters[chapterName]);
+ 
+            document.getElementById(chapterName).setAttribute('class', 'active');
+            document.getElementById(activeChapterName).setAttribute('class', '');
+ 
+            activeChapterName = chapterName;
+    }
+ 
+    function isElementOnScreen(id) {
+        var element = document.getElementById(id);
+        var bounds = element.getBoundingClientRect();
+        // var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return bounds.top < window.innerHeight && bounds.bottom > 0;
+        // return !(bounds.bottom < 0 || bounds.top - viewHeight >= 0);
+    }
+</script>
+
+</body>
+</html>

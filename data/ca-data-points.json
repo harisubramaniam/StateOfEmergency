@@ -1,0 +1,208 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.7208217, 38.9540649]
+        },
+        "properties": {
+            "title": "Clear Lake Riviera, CA",
+            "color": "#FFC200",
+            "description": "<strong>Clear Lake Riviera</strong><p>Residents: 3, 616</p><p>Median Age: 40.7</p><p>Median Household Income: $47,443</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.325592, 34.497406]
+        },
+        "properties": {
+            "title": "Agua Dulce, CA",
+            "color": "#FFC200",
+            "description": "<strong>Agua Dulce</strong><p>Residents: 3,592</p><p>Median Age: 47.3</p><p>Median Household Income: $105,685</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.681683, 34.2062528]
+        },
+        "properties": {
+            "title": "Bell Canyon, CA",
+            "color": "#FFC200",
+            "description": "<strong>Bell Canyon</strong><p>Residents: 2,150</p><p>Median Age: 47.1</p><p>Median Household Income: $200,625</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-121.3909613, 39.6350312]
+        },
+        "properties": {
+            "title": "Berry Creek, CA",
+            "color": "#FFC200",
+            "description": "<strong>Berry Creek</strong><p>Residents: 1,179</p><p>Median Age: 47.1</p><p>Median Household Income: $36,071</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-121.0210585, 39.1987834]
+        },
+        "properties": {
+            "title": "Cedar Ridge, CA",
+            "color": "#FFC200",
+            "description": "<strong>Cedar Ridge</strong><p>Residents: 1,132</p><p>Median Age: 54.1</p><p>Median Household Income: $53,877</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.7230451, 38.8221258]
+        },
+        "properties": {
+            "title": "Cobb, CA",
+            "color": "#FFC200",
+            "description": "<strong>Cobb</strong><p>Residents: 984</p><p>Median Age: 54.2</p><p>Median Household Income: $83,030</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-120.529072, 38.635573]
+        },
+        "properties": {
+            "title": "Grizzly Flats, CA",
+            "color": "#FFC200",
+            "description": "<strong>Grizzly Flats</strong><p>Residents: 954</p><p>Median Age: 51.3</p><p>Median Household Income: $47,889</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-123.379195, 41.793191]
+        },
+        "properties": {
+            "title": "Happy Camp, CA",
+            "color": "#FFC200",
+            "description": "<strong>Happy Camp</strong><p>Residents: 800</p><p>Median Age: 54.6</p><p>Median Household Income: $27,361</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.619926360067, 34.45223875]
+        },
+        "properties": {
+            "title": "Hasley Canyon, CA",
+            "color": "#FFC200",
+            "description": "<strong>Hasley Canyon</strong><p>Residents: 1,137</p><p>Median Age: 47</p><p>Median Household Income: $61,338</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-120.0233622, 39.2362794]
+        },
+        "properties": {
+            "title": "Kings Beach, CA",
+            "color": "#FFC200",
+            "description": "<strong>Kings Beach</strong><p>Residents: 2,824<br>Median Age: 33.6<br>Median Household Income: $46,023</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.288133, 34.618321]
+        },
+        "properties": {
+            "title": "Leona Valley, CA",
+            "color": "#FFC200",
+            "description": "<strong>Leona Valley</strong><p>Residents: 1,615<br>Median Age: 49.3<br>Median Household Income: $81,964</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-120.5718719, 38.4318551]
+        },
+        "properties": {
+            "title": "Pioneer, CA",
+            "color": "#FFC200",
+            "description": "<strong>Pioneer</strong><p>Residents: 1,094<br>Median Age: 57.6<br>Median Household Income: $60,569</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.7090222, 34.2716255]
+        },
+        "properties": {
+            "title": "Santa Susana, CA",
+            "color": "#FFC200",
+            "description": "<strong>Pioneer</strong><p>Residents: 1.042<br>Median Age: 47.6<br>Median Household Income: $68,269</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-122.4919571, 40.5993165]
+        },
+        "properties": {
+            "title": "Shasta, CA",
+            "color": "#FFC200",
+            "description": "<strong>Shasta</strong><p>Residents: 1,771<br>Median Age: 52.6<br>Median Household Income: $46,724</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-120.1282439, 39.0674074]
+        },
+        "properties": {
+            "title": "Tahoma, CA",
+            "color": "#FFC200",
+            "description": "<strong>Tahoma</strong><p>Residents: 675<br>Median Age: 48.9<br>Median Household Income: $73,125</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-118.5970196, 34.0908165]
+        },
+        "properties": {
+            "title": "Topanga, CA",
+            "color": "#FFC200",
+            "description": "<strong>Topanga</strong><p>Residents: 7,705<br>Median Age: 46.5<br>Median Household Income: $120,404</p>",
+            "icon": "town-hall"
+        }
+    }, {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-119.6064674, 37.734435]
+        },
+        "properties": {
+            "title": "Yosemite Valley, CA",
+            "color": "#FFC200",
+            "description": "<strong>Yosemite Valley</strong><p>Residents: 996<br>Median Age: 41.7<br>Median Household Income: N/A</p>",
+            "icon": "town-hall"
+        }
+    }]
+}

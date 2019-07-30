@@ -1,0 +1,7 @@
+[
+    {"year": 2009, "sup_cost": 920529000, "overall_loss": 310000000, "myData": "Overall Loss: <b>$310,000,000</b><br>Number of fires: <b>78,792</b><br>Acres Burned: <b>5,921,786</b><br>Structures Lost: <b>1,899</b><br>"},
+    {"year": 2010, "sup_cost": 809499000, "overall_loss": 360000000, "myData": "Overall Loss: <b>$360,000,000</b><br>Number of fires: <b>7,1971</b><br>Acres Burned: <b>3,422,724</b><br>Structures Lost: <b>788</b><br>"},
+    {"year": 2011, "sup_cost": 1374525000, "overall_loss": 1800000000, "myData": "Overall Loss: <b>$1,800,000,000</b><br>Number of Fires: <b>74,126</b><br>Acres Burned: <b>8,711,367</b><br>Structures Lost: <b>5,246</b><br>"}
+
+
+]

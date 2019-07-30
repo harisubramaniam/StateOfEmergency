@@ -1,0 +1,13 @@
+[{
+    "dataset" :
+    [{"year": 2009, "sup_cost": 920529000, "overall_loss": 310000000, "num_fires": 78792, "acres_burned": 5921786, "ff_deaths": 15, "struct_lost": 1899, "less_than_100K": 11, "significant_fires": 24},
+    {"year": 2010, "sup_cost": 809499000, "overall_loss": 360000000, "num_fires": 71971, "acres_burned":3422724, "ff_deaths": 8, "struct_lost": 788, "less_than_100K": 3, "significant_fires": 9},
+    {"year": 2011, "sup_cost": 1374525000, "overall_loss": 1800000000, "num_fires": 74126, "acres_burned":8711367, "ff_deaths": 11, "struct_lost": 5246, "less_than_100K": 14, "significant_fires": 41},
+    {"year": 2012, "sup_cost": 1902446000, "overall_loss": 1200000000, "num_fires": 67774, "acres_burned":9326238, "ff_deaths": 15, "struct_lost": 4244, "less_than_100K": 14, "significant_fires": 51},
+    {"year": 2013, "sup_cost": 1740934000, "overall_loss": 710000000, "num_fires": 47579, "acres_burned":4319546, "ff_deaths": 34, "struct_lost": 2135, "less_than_100K": 8, "significant_fires": 20},
+    {"year": 2014, "sup_cost": 1522149000, "overall_loss": 180000000, "num_fires": 63312, "acres_burned":3595613, "ff_deaths": 10, "struct_lost": 1953, "less_than_100K": 4, "significant_fires": 9},
+    {"year": 2015, "sup_cost": 2130543000, "overall_loss": 2300000000, "num_fires": 68151, "acres_burned":10125149, "ff_deaths": 13, "struct_lost": 4637, "less_than_100K": 15, "significant_fires": 52},
+    {"year": 2016, "sup_cost": 1975545000, "overall_loss": 1700000000, "num_fires": 67743, "acres_burned":5509995, "ff_deaths": 15, "struct_lost": 4312, "less_than_100K": 6, "significant_fires": 19},
+    {"year": 2017, "sup_cost": 2918165000, "overall_loss": 20000000000, "num_fires": 71499, "acres_burned":10026086, "ff_deaths": 14, "struct_lost": 12242, "less_than_100K": 12, "significant_fires": 51},
+    {"year": 2018, "sup_cost": 3143256000, "overall_loss": 24000000000, "num_fires": 58083, "acres_burned":8767492, "ff_deaths": 19, "struct_lost": 25790, "less_than_100K": 11, "significant_fires": 48}]
+}]

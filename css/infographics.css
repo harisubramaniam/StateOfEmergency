@@ -1,0 +1,56 @@
+body {
+	font-family: 'Roboto Slab', monospace !important;
+	font-weight: 400;
+	background-color: #efeee8 !important;
+}
+
+.graphics-hed {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.graphics-subhed {
+	font-size: 0.80rem; 
+	line-height: 1.5;
+}
+
+.map-graphic {
+	height: 600px !important;
+	min-width: 310px !important;
+	max-width: 750px !important;
+	margin: 0 auto !important;
+}
+
+select.form-control {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: inline;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 22px;
+	font-weight: bold;
+	border-color: transparent;
+	background: url(dropdownarrow.png) right / 2rem no-repeat;
+}
+
+.soe-graphic{
+	display: block;
+	height: 600px;
+	min-width: 310px;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.fed-map-tip .highcharts-tooltip {
+	padding-bottom: 10px;
+	max-width: 200px;
+	max-height: 300px;
+}
+.graphics-source {
+	font-size: 0.6rem !important;
+}
+
+.report-year {
+	font-weight: 500;
+}
