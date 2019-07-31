@@ -24,9 +24,9 @@ Highcharts.setOptions({
     chart: {
         style: {
             fontFamily: 'Noto Sans JP',
-            fontWeight: 200
+            // fontWeight: 200
         },
-        backgroundColor: '#EFEFEF'
+        backgroundColor: '#EFEEE8'
     },
     lang: { 
         thousandsSep: ','
@@ -47,11 +47,11 @@ Highcharts.chart("container1", {
         type: 'pie'
     },
     title: {
-        text: 'Total Outages',
+        text: 'Reasons behind the outages',
         style: {
-                fontWeight: '700',
-                fontSize: '1.25em'
-            }
+            fontWeight: '700',
+            fontSize: '1em'
+        }
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.y}%</b>',
@@ -86,7 +86,7 @@ Highcharts.chart("container1", {
         }, {
             name: 'Overdemand',
             y: .17,
-            color: '##B3B1AC'
+            color: '#B3B1AC'
         }, {
             name: 'Planned',
             y: 5.46,
@@ -120,11 +120,11 @@ Highcharts.chart("container2", {
         type: 'pie'
     },
     title: {
-        text: 'Affected Customers',
+        text: 'Categories affecting the most customers',
         style: {
-                fontWeight: '700',
-                fontSize: '1.25em'
-            }
+            fontWeight: '700',
+            fontSize: '1em'
+        }
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.y}%</b>',

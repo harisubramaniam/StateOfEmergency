@@ -8,13 +8,17 @@ body {
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 20px;
+	text-align: center;
 }
 
 .graphics-subhed {
-	font-size: 0.80rem; 
+	font-size: 1rem; 
 	line-height: 1.5;
 }
 
+.graphics-legend {
+	font-size: .75rem; 
+}
 .map-graphic {
 	height: 600px !important;
 	min-width: 310px !important;
@@ -48,7 +52,7 @@ select.form-control {
 	max-height: 300px;
 }
 .graphics-source {
-	font-size: 0.6rem !important;
+	font-size: 0.75rem !important;
 }
 
 .report-year {
