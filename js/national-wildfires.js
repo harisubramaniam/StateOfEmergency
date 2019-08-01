@@ -82,6 +82,7 @@ function getFireData() {
             text: null
         },
         legend: {
+            itemDistance: 50,
             x: 0,
             y: 40,
             padding: 5,
@@ -95,6 +96,7 @@ function getFireData() {
             padding: 2
         },
         xAxis: {
+            tickInterval: 3,
             crosshair: {
                 width: 2,
                 color: "gray",

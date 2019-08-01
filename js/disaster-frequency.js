@@ -51,14 +51,22 @@ Highcharts.chart('container', {
 
     yAxis: {
         title: {
-            text: 'Number of Disasters'
+            text: 'Number of Federally Declared Disasters Including Each Type',
+            style: {
+                fontSize: '1rem'
+            }
         }
     },
+
+    xAxis: {
+        tickInterval: 1
+    },
+  
     legend: {
         layout: 'horizontal',
         align: 'center',
         verticalAlign: 'top',
-        backgroundColor: '#EFEFEF',
+        backgroundColor: '#EFEEE8',
         symbolHeight: 25,
         symbolWidth: 10,
         symbolRadius: 0,
@@ -70,25 +78,18 @@ Highcharts.chart('container', {
 
     plotOptions: {
         series: {
-            label: {
-                connectorAllowed: false
-            },
             pointStart: 1999
-        },
-        bullet: {
-
         }
     },
     
     tooltip: {
-        
         shared: true,
         headerFormat: '<b>{point.x}</b><br>'
     },
 
     series: [{
         name: 'Flooding',
-        data: [23, 19, 21, 21, 28, 44, 28, 37, 43, 51, 39, 52, 53, 18, 41, 30, 29, 30, 32, 33],
+        data: [22, 19, 21, 21, 28, 42, 26, 35, 43, 51, 41, 51, 53, 18, 41, 30, 29, 30, 32, 33],
         color: '#9E2531',
         lineWidth: 3,
         visible: true,
@@ -98,7 +99,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Fire',
-        data: [0, 3, 0, 2, 2, 1, 0, 3, 1, 1, 1, 0, 0, 3, 4, 1, 2, 1, 1, 4],
+        data: [0, 3, 0, 2, 2, 1, 0, 3, 1, 1, 1, 0, 2, 3, 4, 1, 2, 1, 1, 4],
         color: '#F2780C',
         lineWidth: 3,
         visible: true,
@@ -108,7 +109,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Mud',
-        data: [2, 1, 0, 1, 5, 4, 4, 10, 5, 3, 5, 8, 5, 4, 6, 3, 12, 6, 11, 8],
+        data: [2, 1, 0, 1, 5, 4, 4, 10, 5, 4, 5, 8, 5, 4, 6, 3, 12, 6, 11, 8],
         color: '#D9851E',
         lineWidth: 3,
         visible: false,
@@ -118,7 +119,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Wind',
-        data: [6, 0, 0, 1, 4, 4, 1, 3, 0, 5, 9, 7, 15, 13, 7, 13, 15, 11, 15, 9],
+        data: [7, 0, 0, 1, 4, 4, 1, 3, 0, 5, 9, 7, 15, 13, 7, 13, 14, 11, 16, 9],
         color: '#4A8C80',
         lineWidth: 3,
         visible: false,
@@ -128,7 +129,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Winter Storm',
-        data: [8, 15, 5, 6, 11, 4, 8, 8, 12, 8, 19, 29, 17, 3, 16, 12, 11, 10, 19, 6],
+        data: [7, 15, 5, 7, 11, 4, 8, 8, 12, 8, 19, 29, 17, 3, 16, 12, 12, 12, 19, 6],
         color: '#D0D8D9',
         lineWidth: 3,
         visible: true,
@@ -138,7 +139,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Landslide',
-        data: [1, 0, 0, 2, 4, 6, 4, 9, 4, 3, 4, 4, 5, 6, 5, 3, 10, 5, 6, 9],
+        data: [2, 0, 0, 2, 4, 6, 4, 9, 4, 3, 4, 4, 5, 6, 5, 3, 10, 6, 6, 9],
         color: '#4F5F73',
         lineWidth: 3,
         visible: false,
@@ -148,7 +149,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Hurricane',
-        data: [15, 0, 0, 1, 7, 10, 11, 0, 0, 9, 0, 2, 9, 15, 3, 0, 0, 6, 12, 8],
+        data: [14, 0, 0, 1, 7, 10, 11, 0, 0, 8, 0, 2, 9, 15, 3, 0, 0, 6, 12, 8],
         color: '#169EF2',
         lineWidth: 3,
         visible: true,
@@ -168,7 +169,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Severe Storm',
-        data: [25, 22, 25, 23, 30, 36, 22, 38, 48, 52, 37, 45, 42, 24, 36, 25, 26, 25, 21, 32],
+        data: [25, 22, 25, 24, 30, 36, 23, 38, 48, 52, 37, 45, 43, 25, 36, 26, 26, 26, 21, 32],
         color: '#D92818',
         lineWidth: 3,
         visible: true,
@@ -195,5 +196,4 @@ Highcharts.chart('container', {
             }
         }]
     }
-
 });

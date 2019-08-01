@@ -11,19 +11,20 @@
     <link href="css/infographics.css" rel="stylesheet"></head>
     <style>
         body { margin:0; padding:0; }
-        #map { position:fixed; top:0; bottom:0; width:100%; }
+        /*#map { position:fixed; top:0; bottom:0; width:100%; }*/
+        #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 </head>
 <body>
 <style>
     #map {
         position: fixed;
-        height: 400px;
+        /*height: 400px;*/
         width: 50%;
     }
     #features {
-        height: 400px;
-        min-height: 400 !important;
+        /*height: 400px;*/
+        /*min-height: 400 !important;*/
         width: 50%;
         margin-left: 50%;
         font-family: 'Noto Sans JP';
@@ -743,8 +744,8 @@
     });
 
     // On every scroll event, check which element is on screen
-    // window.onscroll = function() {
-    $('#features').scroll(function() {
+    window.onscroll = function() {
+    // $('#features').scroll(function() {
         var chapterNames = Object.keys(chapters);
         for (var i = 0; i < chapterNames.length; i++) {
             var chapterName = chapterNames[i];
@@ -753,7 +754,8 @@
                 break;
             }
         }
-    });
+    // });
+    };
  
     var activeChapterName = 'acton';
     function setActiveChapter(chapterName) {

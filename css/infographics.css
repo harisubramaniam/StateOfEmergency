@@ -20,6 +20,7 @@ body {
 .graphics-legend {
 	font-size: .75rem; 
 }
+
 .map-graphic {
 	height: 600px !important;
 	min-width: 310px !important;
