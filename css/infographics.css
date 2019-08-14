@@ -54,6 +54,7 @@ select.form-control {
 	max-height: 300px;
 }
 .graphics-source {
+	font-family: 'Roboto Slab';
 	font-size: 0.75rem !important;
 }
 

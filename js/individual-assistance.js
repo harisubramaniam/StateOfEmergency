@@ -19,7 +19,7 @@
 Highcharts.setOptions({
     chart: {
         style: {
-            fontFamily: 'Noto Sans JP'
+            fontFamily: 'Roboto Slab'
         }
     },
     lang: {
@@ -42,14 +42,14 @@ Highcharts.chart('container', {
     },
     
     title: {
-        style: {
-            display: 'none'
-        },
-        text: ''
+        text: null
     },
     
     xAxis: {
-        tickInterval: 1
+        tickInterval: 1,
+        title: {
+            text: 'Declaration Year'
+        }
     },
     
     yAxis: {
@@ -57,12 +57,20 @@ Highcharts.chart('container', {
         title: {
             text: 'Number of Federally Declared Disasters',
             style: {
-                fontSize: '1rem'
+                fontSize: '1rem',
+                fontFamily: 'Roboto Slab'
             }
         }
     },
 
     legend: {
+        x: 0,
+        y: 0,
+        padding: 5,
+        itemStyle: {
+            fontFamily: 'Roboto Slab',
+            fontSize: '1rem'
+        },
         verticalAlign: 'top'
     },
 
@@ -97,11 +105,11 @@ Highcharts.chart('container', {
     series: [{
         name: 'Recieved IA',
         color: '#6C8C27',
-        data: [37,26,27,38,40,43,20,26,33,35,21,18,38,18,9,7,11,18,17,17]
+        data: [37,26,25,38,40,43,20,26,33,35,21,18,38,18,9,7,11,18,17,17]
     }, {
         name: 'Did not recieve IA',
         color: '#D98032',
-        data: [13,19,18,11,16,25,28,26,30,40,38,63,61,29,53,38,32,28,42,42]
+        data: [13,19,18,11,16,25,28,26,30,40,38,63,61,29,52,38,32,28,42,42]
     }]
 
 });

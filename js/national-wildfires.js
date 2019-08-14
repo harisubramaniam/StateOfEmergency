@@ -48,7 +48,7 @@ function getFireData() {
     Highcharts.setOptions({
         chart: {
             style: {
-                fontFamily: 'Noto Sans JP'
+                fontFamily: 'Roboto Slab'
             }
         },
         lang: {
@@ -75,17 +75,20 @@ function getFireData() {
         },
 
         title: {
-            text: null
+            text: null,
+            margin: 0
         },
     
-        subtitle: {
-            text: null
-        },
+        // subtitle: {
+        //     text: null,
+        //     margin: 0
+        // },
+
         legend: {
             itemDistance: 50,
             x: 0,
-            y: 40,
-            padding: 5,
+            y: 0,
+            // padding: 5,
             itemSytle: {
                 fontFamily: "Roboto Slab",
                 fontSize: ".85rem"
@@ -93,7 +96,7 @@ function getFireData() {
             layout: 'horizontal',
             align: 'center',
             verticalAlign: 'top',
-            padding: 2
+            padding: 1
         },
         xAxis: {
             tickInterval: 3,

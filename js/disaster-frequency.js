@@ -19,7 +19,7 @@
 Highcharts.setOptions({
     chart: {
         style: {
-            fontFamily: 'Noto Sans JP'
+            fontFamily: 'Roboto Slab'
         }
     },
     lang: {
@@ -45,24 +45,35 @@ Highcharts.chart('container', {
         text: null
     },
 
-    subtitle: {
-        text: null
-    },
-
     yAxis: {
         title: {
             text: 'Number of Federally Declared Disasters Including Each Type',
             style: {
-                fontSize: '1rem'
+                fontSize: '1rem',
+                fontFamily: 'Roboto Slab'
             }
         }
     },
 
     xAxis: {
-        tickInterval: 1
+        tickInterval: 1,
+        title: {
+            text: 'Declaration Year'
+        },
+        labels: {
+            style: {
+                fontSize: '1rem',
+                fontFamily: 'Roboto Slab'
+            }
+        }
     },
   
     legend: {
+        useHTML: true,
+        style: {
+            fontSize: '1rem',
+            fontFamily: 'Roboto Slab'
+        },
         layout: 'horizontal',
         align: 'center',
         verticalAlign: 'top',
@@ -71,6 +82,7 @@ Highcharts.chart('container', {
         symbolWidth: 10,
         symbolRadius: 0,
         x: 0,
+        y: 0,
         borderWidth: 0,
         borderColor: '#CCC',
         shadow: false
@@ -89,7 +101,7 @@ Highcharts.chart('container', {
 
     series: [{
         name: 'Flooding',
-        data: [22, 19, 21, 21, 28, 42, 26, 35, 43, 51, 41, 51, 53, 18, 41, 30, 29, 30, 32, 33],
+        data: [21, 19, 21, 21, 28, 42, 26, 35, 43, 51, 41, 51, 53, 18, 41, 30, 29, 30, 33, 33],
         color: '#9E2531',
         lineWidth: 3,
         visible: true,
@@ -149,7 +161,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Hurricane',
-        data: [14, 0, 0, 1, 7, 10, 11, 0, 0, 8, 0, 2, 9, 15, 3, 0, 0, 6, 12, 8],
+        data: [14, 0, 0, 1, 7, 10, 11, 0, 0, 8, 0, 2, 9, 15, 2, 0, 0, 6, 12, 8],
         color: '#169EF2',
         lineWidth: 3,
         visible: true,
