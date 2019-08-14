@@ -5,6 +5,7 @@ body {
 }
 
 .graphics-hed {
+	font-family: 'Roboto Slab';
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 20px;
@@ -12,13 +13,15 @@ body {
 }
 
 .graphics-subhed {
-	font-size: 1rem; 
-	line-height: 1.5;
+	font-family: 'Roboto Slab';
+	font-size: 0.80rem;
 	text-align: center;
+	line-height: 1.5;
 }
 
 .graphics-legend {
-	font-size: .75rem; 
+	font-family: 'Roboto Slab';
+	font-size: 0.75rem; 
 }
 
 .map-graphic {
@@ -53,6 +56,7 @@ select.form-control {
 	max-width: 200px;
 	max-height: 300px;
 }
+
 .graphics-source {
 	font-family: 'Roboto Slab';
 	font-size: 0.75rem !important;

@@ -23,7 +23,7 @@
 Highcharts.setOptions({
     chart: {
         style: {
-            fontFamily: 'Noto Sans JP',
+            fontFamily: 'Roboto Slab',
             // fontWeight: 200
         },
         backgroundColor: '#EFEEE8'

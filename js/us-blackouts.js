@@ -263,7 +263,7 @@ $(function () {
     Highcharts.setOptions({
         chart: {
             style: {
-                fontFamily: 'Noto Sans JP'
+                fontFamily: 'Roboto Slab'
             }
         },
         credits: {
@@ -278,7 +278,8 @@ $(function () {
     });
 
     // Initiate the chart
-    $('#container').highcharts('Map', {
+    // $('#container').highcharts('Map', {
+    Highcharts.mapChart('container', {
         legend: {
             enabled: false
         },
@@ -290,23 +291,11 @@ $(function () {
         },
 
         title : {
-            // enabled: false,
+            enabled: false,
             text : '',
             floating: true,
             verticalAlign: 'top',
             margin: 0
-        },
-
-        subtitle : {
-            // enabled: false,
-            text : ''
-        },
-
-        plotOptions: {
-            mapline: {
-                showInLegend: false,
-                enableMouseTracking: false
-            }
         },
 
         mapNavigation: {
@@ -353,6 +342,7 @@ $(function () {
         },
 
         tooltip: {
+            enabled: true,
             useHTML: true,
             headerFormat: '',
             pointFormat: "<b>{point.state_name}</b><br />&#8226; Outages: <b>{point.value}</b>"

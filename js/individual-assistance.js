@@ -103,11 +103,11 @@ Highcharts.chart('container', {
     },
 
     series: [{
-        name: 'Recieved IA',
+        name: 'Received IA',
         color: '#6C8C27',
         data: [37,26,25,38,40,43,20,26,33,35,21,18,38,18,9,7,11,18,17,17]
     }, {
-        name: 'Did not recieve IA',
+        name: 'Did not receive IA',
         color: '#D98032',
         data: [13,19,18,11,16,25,28,26,30,40,38,63,61,29,52,38,32,28,42,42]
     }]

@@ -121,7 +121,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Mud',
-        data: [2, 1, 0, 1, 5, 4, 4, 10, 5, 4, 5, 8, 5, 4, 6, 3, 12, 6, 11, 8],
+        data: [2, 1, 0, 1, 5, 4, 4, 10, 5, 4, 5, 8, 5, 4, 6, 3, 12, 7, 11, 8],
         color: '#D9851E',
         lineWidth: 3,
         visible: false,
@@ -141,7 +141,7 @@ Highcharts.chart('container', {
         }
     }, {
         name: 'Winter Storm',
-        data: [7, 15, 5, 7, 11, 4, 8, 8, 12, 8, 19, 29, 17, 3, 16, 12, 12, 12, 19, 6],
+        data: [7, 15, 5, 7, 11, 4, 8, 7, 12, 8, 19, 29, 17, 3, 16, 12, 12, 12, 19, 6],
         color: '#D0D8D9',
         lineWidth: 3,
         visible: true,

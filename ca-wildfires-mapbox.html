@@ -7,7 +7,7 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900|Roboto+Slab:100,300,400,700&display=swap" rel="stylesheet">
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <link href="css/infographics.css" rel="stylesheet"></head>
     <style>
         body { margin:0; padding:0; }
@@ -17,26 +17,39 @@
 </head>
 <body>
 <style>
+    h3 {
+        font-family: 'Roboto Slab';
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+    p {
+        font-family: Georgia;
+        font-size: 1rem;
+    }
+    .mapbox-source {
+        font-family: Georgia;
+        font-size: .75rem;
+        font-style: italic;
+    }
     #map {
         position: fixed;
-        /*height: 400px;*/
         width: 50%;
     }
     #features {
-        /*height: 400px;*/
-        /*min-height: 400 !important;*/
+        /* height: 400px; */
+        /* min-height: 400 !important; */
         width: 50%;
         margin-left: 50%;
         font-family: 'Noto Sans JP';
         overflow-y: scroll;
-        background-color: #fafafa;
+        background-color: #EFEEE8;
     }
     section {
         padding:  25px 50px;
         line-height: 25px;
         border-bottom: 1px solid #ddd;
         opacity: 0.25;
-        font-size: 13px;
+        font-size: 1rem;
     }
     section.active {
         opacity: 1;
@@ -47,18 +60,20 @@
     }
     .mapboxgl-popup {
         max-width: 400px;
-        font: 12px/20px 'Noto Sans JP';
+        font: 12px/20px 'Roboto Slab';
     }
 </style>
 <div class="container">
     <div class="row">
-    <!-- <h2 class="graphics-hed">California Communities affected by wildfires</h2> -->
-    <div class="col-md-8 offset-md-2">
-        
-        <!-- <p class="graphics-subhed">Subhed goes here!</p> -->
-        <div id='map'></div>
-        <div id='features'>
-            <section id='acton' class='active'>
+        <div class="col-md-8 offset-md-2">
+            <div id='map'></div>
+            <div id='features'>
+            <section id='california' class='active' >
+                <h3>California Communities in the Fire Zone</h3>
+                <p>California is one of the most wildfire-vulnerable states in the country. Nearly 60 communities in the Golden State are 100% within a high-risk fire zone. Scroll to see the  population, median age and income of each community.</p>
+                <p class="mapbox-source">SOURCE: The National Interagency Fire Center, Cal Fire, McClatchy and US Data</p>
+            </section>
+            <section id='acton'>
                 <h3>Acton, CA</h3>
                 <p>Residents: 7, 278<br>Median Age: 50.2<br>Median Household Income: $90,859</p>
             </section>
@@ -293,24 +308,32 @@
             <section id='empty'>
                 <p></p>
             </section>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VicmFtaCIsImEiOiJjajhxZ2RsajUwc2Y0MzhxdXBnc3RsanZ5In0.By499mklvhxz-bWCAeZMMg';
+    mapboxgl.accessToken = 'pk.eyJ1IjoibmV3czIxIiwiYSI6ImNqa292b2N6NjE3aXQzd3A4a3M4c3JjcXAifQ.Oy7AczSqcpZVP8FNrrcE1Q';
     
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
-        center: [-118.1967418, 34.469994], // starting position = Acton
-        zoom: 11, // starting zoom
+        center: [-119.787103, 36.735865], // starting position = zoomed out California
+        zoom: 4.5, // starting zoom
         // bearing: 25,
-        // pitch: 45,
-        interactive: true
+        pitch: 45,
+        interactive: false
     });
     
     var chapters = {
+        'california': {
+            // duration: 6000,
+            center: [-119.787103, 36.735865],
+            bearing: 20,
+            zoom: 4,
+            pitch: 20
+        },
         'acton': {
             // duration: 6000,
             center: [-118.1967418, 34.469994],
@@ -757,7 +780,7 @@
     // });
     };
  
-    var activeChapterName = 'acton';
+    var activeChapterName = 'california';
     function setActiveChapter(chapterName) {
         if (chapterName === activeChapterName) return;
  

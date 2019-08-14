@@ -47,10 +47,10 @@ var chart = new Highcharts.chart('container', {
 
     xAxis: {
         tickInterval: 5,
-        crossHair: true,
         title: {
             text: 'Declaration Year'
-        }
+        },
+        crossHair: true
     },
 
     yAxis: {
@@ -115,10 +115,10 @@ var barChart = new Highcharts.chart('containerMob', {
 
     xAxis: {
         tickInterval: 1,
-        crossHair: true,
         title: {
             text: 'Declaration Year'
-        }
+        },
+        crossHair: true
     },
 
     yAxis: {
